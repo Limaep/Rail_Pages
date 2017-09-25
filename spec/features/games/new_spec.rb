@@ -1,18 +1,18 @@
-RSpec.describe 'Posts' do
+RSpec.describe 'games' do
    before :each do
-     visit new_post_path
-     fill_in('post_title', with: 'new title')
+     visit new_game_path
+     fill_in('game_name', with: 'new title')
    end
 
-   it 'saves a new post' do
-     fill_in('post_body', with: "A new description longer than 10 characters")
-     click_button('Create Post')
+   it 'saves a new game' do
+     fill_in('game_summary', with: "A new summary longer than 300 characters"*30)
+     click_button('Create Game')
      expect(page).to have_content('successfully created')
-     expect(current_path).not_to eq(new_post_path)
+     expect(current_path).not_to eq(new_game_path)
    end
-   it 'will not save an invalid post' do
-     click_button('Create Post')
+   it 'will not save an invalid game' do
+     click_button('Create Game')
      expect(page).not_to have_content('successfully created')
-     expect(current_path).to eq(posts_path)
+     expect(current_path).to eq(games_path)
    end
  end

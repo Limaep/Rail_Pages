@@ -1,3 +1,5 @@
 class Game < ApplicationRecord
-  validates :name,:summary, presence: true
+  has_many :cars
+  validates :name, presence: true
+  validates :summary, presence: true, length: {minimum: 300}
 end

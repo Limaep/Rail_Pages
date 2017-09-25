@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Model:
+  = @car.model
+%p
+  %b Make:
+  = @car.make
+%p
+  %b Owner:
+  = @car.owner_id
+
+= link_to 'Edit', edit_car_path(@car)
+\|
+= link_to 'Back', cars_path

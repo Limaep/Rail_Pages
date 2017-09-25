@@ -7,6 +7,12 @@
   %b Summary:
   = @game.summary
 
+%h3 Cars
+- @game.cars.each do |car|
+  =car.make
+  =car.model
+%br
+	
 = link_to 'Edit', edit_game_path(@game)
 \|
 = link_to 'Back', games_path
