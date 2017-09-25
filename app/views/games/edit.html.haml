@@ -1,6 +1,10 @@
 %h1 Editing game
 
-= render 'form'
+= simple_form_for(@game) do |f|
+
+  =f.input :name, as: :text, placeholder: 'Please enter your name', label: false
+  =f.input :summary , as: :text , input_html: {rows: 15} , placeholder: 'Please enter your name'
+  =f.button :submit, class: 'btn-primary'
 
 = link_to 'Show', @game
 \|

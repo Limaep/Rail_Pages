@@ -1,16 +1,5 @@
-= form_for @game do |f|
-  - if @game.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@game.errors.count, "error")} prohibited this game from being saved:"
-      %ul
-        - @game.errors.full_messages.each do |message|
-          %li= message
+= simple_form_for(@game) do |f|
 
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :summary
-    = f.text_field :summary
-  .actions
-    = f.submit 'Save'
+  =f.input :name, as: :text, placeholder: 'Please enter your name', label: false
+  =f.input :summary , as: :text , input_html: {rows: 15} , placeholder: 'Please enter your name'
+  =f.button :submit, class: 'btn-primary'

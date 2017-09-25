@@ -7,13 +7,11 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-
-    %nav
-      %ul
-        %li
-          %a{:href => "#"} Home
-        %li
-          %a{:href => "#"} About
-        %li
-          %a{:href => "#"} Contact
-    = yield
+    = render "layouts/nav"
+    .container-fluid
+      .row
+        .col-1
+        .col-10
+          = yield
+        .col-10
+    = render "layouts/footer"

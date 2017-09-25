@@ -1,5 +1,10 @@
-%h1 New game
+%h1 Create a new game!
+%%p Lorem ipsum...
 
-= render 'form'
+= simple_form_for(@game) do |f|
 
-= link_to 'Back', games_path
+  =f.input :name, as: :text, placeholder: 'Enter the name of your game', label: false
+  =f.input :summary , as: :text , input_html: {rows: 15} , placeholder: 'Give your game a brief description :)'
+  =f.button :submit, class: 'btn-primary'
+
+  = link_to 'Cancel', games_path , class: 'btn btn-outline-warning float-right'
