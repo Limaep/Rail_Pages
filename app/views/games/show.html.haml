@@ -8,11 +8,9 @@
   = @game.summary
 
 %h3 Cars
-- @game.cars.each do |car|
-  =car.make
-  =car.model
+= render "cars/index", cars: @game.cars
 %br
-%h3 Create a new car 
+%h4 Create a new car
 = render "cars/form"
 = link_to 'Edit', edit_game_path(@game)
 \|

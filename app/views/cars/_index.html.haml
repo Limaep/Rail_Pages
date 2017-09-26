@@ -1,0 +1,20 @@
+%h1 Listing cars
+
+%table
+  %thead
+    %tr
+      %th Model
+      %th Make
+      %th
+      %th
+
+  %tbody
+    - cars.each do |car|
+      %tr
+        %td= car.model
+        %td= car.make
+        -# %td= link_to 'Show', game_car_path(car.game, car)
+        -# %td= link_to 'Edit', edit_game_car_path(@game, car)
+        -# %td= link_to 'Destroy', game_car_path(@game, car), method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
