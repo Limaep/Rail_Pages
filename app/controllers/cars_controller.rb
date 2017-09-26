@@ -1,6 +1,6 @@
 class CarsController < ApplicationController
   before_action :set_car, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_game
   # GET /cars
   # GET /cars.json
   def index
@@ -25,13 +25,16 @@ class CarsController < ApplicationController
   # POST /cars.json
   def create
     @car = Car.new(car_params)
+    @car.game = @game
 
     respond_to do |format|
       if @car.save
-        format.html { redirect_to @car, notice: 'Car was successfully created.' }
+        format.html { redirect_to game_path(@game), notice: 'Car was successfully created.' }
         format.json { render :show, status: :created, location: @car }
       else
-        format.html { render :new }
+        format.html do
+          render 'games/show'
+        end
         format.json { render json: @car.errors, status: :unprocessable_entity }
       end
     end
@@ -42,7 +45,7 @@ class CarsController < ApplicationController
   def update
     respond_to do |format|
       if @car.update(car_params)
-        format.html { redirect_to @car, notice: 'Car was successfully updated.' }
+        format.html { redirect_to game_path(@car.game), notice: 'Car was successfully updated.' }
         format.json { render :show, status: :ok, location: @car }
       else
         format.html { render :edit }
@@ -66,7 +69,9 @@ class CarsController < ApplicationController
     def set_car
       @car = Car.find(params[:id])
     end
-
+    def set_game
+      @game = Game.find(params[:game_id])
+    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def car_params
       params.require(:car).permit(:model, :make, :owner_id)

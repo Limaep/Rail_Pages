@@ -12,7 +12,8 @@
   =car.make
   =car.model
 %br
-	
+%h3 Create a new car 
+= render "cars/form"
 = link_to 'Edit', edit_game_path(@game)
 \|
 = link_to 'Back', games_path

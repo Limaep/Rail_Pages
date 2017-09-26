@@ -2,6 +2,6 @@ FactoryGirl.define do
   factory :car do
     model "MyString"
     make "MyString"
-    owner_id ""
+    game 
   end
 end
