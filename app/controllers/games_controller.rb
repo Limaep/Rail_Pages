@@ -10,7 +10,7 @@ class GamesController < ApplicationController
   # GET /games/1
   # GET /games/1.json
   def show
-    @car = @game.cars.create 
+    @car = Car.new(game_id: @game.id)
   end
 
   # GET /games/new

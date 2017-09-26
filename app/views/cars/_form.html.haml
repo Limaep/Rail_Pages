@@ -1,10 +1,6 @@
-= simple_form_for([@game, @car]) do |f|
+= simple_form_for([@game, @car], html: {class: "form-inline"}) do |f|
   = f.error_notification
 
-  .form-inputs
-    = f.input :model
-    = f.input :make
-
-
-  .form-actions
-    = f.button :submit
+  = f.input :model
+  = f.input :make
+  = f.button :submit
